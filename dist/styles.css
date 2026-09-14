@@ -1,0 +1,344 @@
+:root {
+  color-scheme: light;
+  --paper: #fdfaf4;
+  --paper-deep: #f6efe4;
+  --ink: #4f4030;
+  --ink-soft: #75695d;
+  --line: rgba(79, 64, 48, 0.16);
+  --clay: #d4945e;
+  --blue: #69a8cc;
+  --white: rgba(255, 255, 255, 0.66);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 14% 20%, rgba(212, 148, 94, 0.06), transparent 30rem),
+    var(--paper);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+a { color: inherit; }
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0.35rem;
+  transform: translateY(-150%);
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+.site-header,
+main,
+footer {
+  width: min(1080px, calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.site-header {
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: white;
+  background: var(--blue);
+  font-size: 1.25rem;
+  box-shadow: 0 0.35rem 1rem rgba(105, 168, 204, 0.18);
+}
+
+nav { display: flex; gap: 1.65rem; }
+
+nav a {
+  position: relative;
+  padding-block: 1.7rem 1.55rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.95rem;
+  height: 2px;
+  background: var(--clay);
+  transform: scaleX(0);
+  transition: transform 160ms ease;
+}
+
+nav a:hover::after,
+nav a:focus-visible::after,
+nav a.active::after { transform: scaleX(1); }
+
+.hero {
+  min-height: 35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 5rem 4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.privacy-hero { min-height: 33rem; }
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  color: var(--clay);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  font-weight: 850;
+  letter-spacing: 0.2em;
+}
+
+h1,
+h2,
+summary { text-wrap: balance; }
+
+h1 {
+  margin: 0;
+  max-width: 12ch;
+  font-size: clamp(3.8rem, 8vw, 6.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.065em;
+}
+
+.accent-line {
+  width: min(24rem, 55%);
+  height: 4px;
+  margin-block: 1.9rem 1.35rem;
+  border-radius: 999px;
+  background: var(--clay);
+}
+
+.lead {
+  max-width: 43rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+}
+
+.updated {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.content-section { padding-block: 6rem; }
+
+h2 {
+  margin: 0 0 2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.faq-list { border-top: 1px solid var(--line); }
+
+details { border-bottom: 1px solid var(--line); }
+
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 1.65rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--clay);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+details[open] summary::after { content: "−"; }
+
+details p {
+  max-width: 48rem;
+  margin: -0.35rem 3.8rem 1.65rem 0;
+  color: var(--ink-soft);
+}
+
+.contact-card,
+.policy-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  box-shadow: 0 1.5rem 4rem rgba(79, 64, 48, 0.06);
+}
+
+.contact-card {
+  margin-bottom: 6rem;
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.contact-card p:not(.eyebrow) {
+  max-width: 44rem;
+  color: var(--ink-soft);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  margin-top: 1rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  color: white;
+  background: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: #33291f;
+  transform: translateY(-1px);
+}
+
+.policy-card {
+  margin-block: -1.5rem 6rem;
+  padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+.policy-card section + section {
+  margin-top: 2.6rem;
+  padding-top: 2.6rem;
+  border-top: 1px solid var(--line);
+}
+
+.policy-card h2 {
+  margin-bottom: 0.9rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  letter-spacing: -0.025em;
+}
+
+.policy-card p {
+  margin: 0.55rem 0 0;
+  color: var(--ink-soft);
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: #315f79;
+  font-weight: 750;
+  text-underline-offset: 0.25em;
+}
+
+footer {
+  min-height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+footer a { text-underline-offset: 0.25em; }
+
+:focus-visible {
+  outline: 3px solid rgba(105, 168, 204, 0.55);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .site-header,
+  main,
+  footer { width: min(100% - 2rem, 1080px); }
+
+  .site-header {
+    min-height: 4.5rem;
+    gap: 1rem;
+  }
+
+  .brand { font-size: 0.95rem; }
+  .brand-mark { width: 2rem; }
+  nav { gap: 1rem; font-size: 0.88rem; }
+  nav a { padding-block: 1.4rem 1.25rem; }
+  nav a::after { bottom: 0.7rem; }
+
+  .hero,
+  .privacy-hero {
+    min-height: auto;
+    padding-block: 5.5rem 4rem;
+  }
+
+  h1 {
+    max-width: none;
+    font-size: clamp(3.05rem, 16vw, 4.5rem);
+  }
+
+  .content-section { padding-block: 4.5rem; }
+  summary { gap: 1rem; padding-block: 1.35rem; }
+  details p { margin-right: 0; }
+  .contact-card { margin-bottom: 4rem; }
+  .policy-card { margin-top: 0; margin-bottom: 4rem; }
+
+  footer {
+    padding-block: 1.5rem;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  footer p { margin: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
