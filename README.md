@@ -2,4 +2,4 @@
 
 iOSアプリ「つぎなに」のサポートページとプライバシーポリシーです。
 
-GitHub Pagesには `dist/` の静的ファイルをGitHub Actionsから公開します。
+GitHub Pagesには `docs/` の静的ファイルを公開します。
