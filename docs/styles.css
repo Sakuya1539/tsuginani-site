@@ -110,6 +110,11 @@ nav a.active::after { transform: scaleX(1); }
   border-bottom: 1px solid var(--line);
 }
 
+.support-hero {
+  min-height: 25rem;
+  padding-block: 4rem 3.5rem;
+}
+
 .privacy-hero { min-height: 33rem; }
 
 .eyebrow {
@@ -311,6 +316,8 @@ footer a { text-underline-offset: 0.25em; }
     min-height: auto;
     padding-block: 5.5rem 4rem;
   }
+
+  .support-hero { padding-block: 3.75rem 3.25rem; }
 
   h1 {
     max-width: none;
